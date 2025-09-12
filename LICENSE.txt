@@ -1,0 +1,13 @@
+Autoriõigus (c) 2025 [Aistra OÜ]  
+Kõik õigused on reserveeritud.  
+
+Seda koodi, kujundust ja sisu ei tohi kopeerida, muuta, levitada ega kasutada ilma autori eelneva kirjaliku loata.  
+Veebileht on avalik vaatamiseks aadressil [sakuvaibad.ee], kuid lähtekoodi kasutamine muudel eesmärkidel ei ole lubatud.  
+
+---
+
+Copyright (c) 2025 [Aistra OÜ]  
+All rights reserved.  
+
+This code, design, and content may not be copied, modified, distributed, or used without the prior written permission of the author.  
+The website is publicly viewable at [sakuvaibad.ee], but the source code may not be reused for other purposes.  

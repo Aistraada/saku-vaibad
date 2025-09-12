@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="et" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saku Vaibad</title>
+    <meta name="description" content="Tule ja uudista, võibolla on siin midagi ainulaadset ka Sinu kodu jaoks.">
+    <meta property="og:url" content="https://aistraada.github.io/saku-vaibad/">
+    <meta property="og:title" content="Saku Vaibad">
+    <meta property="og:description" content="Tule ja uudista, võibolla on siin midagi ainulaadset ka Sinu kodu jaoks.">
+    <meta property="og:image" content="https://aistraada.github.io/saku-vaibad/images/4.jpeg">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-bg': '#F8F8F8',
+                        'brand-text': '#4A4A4A',
+                        'brand-title': '#493B49',
+                        'brand-accent': '#B9E4DB',
+                        'pastel-blue': '#A7D9FF',
+                        'pastel-yellow': '#FFF9C4',
+                        'pastel-pink': '#FFD1D1',
+                        'pastel-mint': '#C2F9C7',
+                        'pastel-purple': '#E0BBE4',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #F8F8F8;
+            color: #4A4A4A;
+            font-family: 'Open Sans', sans-serif;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Lora', serif;
+            color: #493B49;
+        }
+        .text-shadow {
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+        }
+        /* Active link styles */
+        .nav-active {
+            font-weight: bold;
+            transform: scale(1.05);
+        }
+        .nav-active-lugu { color: #FFD1D1 !important; }
+        .nav-active-vaibad { color: #E0BBE4 !important; }
+        .nav-active-kontakt { color: #A7D9FF !important; }
+
+        /* --- Lahtirulluv vaip (paremal) --- */
+        .carpet-container {
+            position: fixed;
+            right: 20px;
+            top: 50px;
+            width: 120px;
+            height: calc(100vh - 100px);
+            z-index: 1000;
+            pointer-events: none;
+        }
+
+        .carpet-roll {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(45deg, #8B0000, #A52A2A, #DC143C);
+            border-radius: 50%;
+            box-shadow:
+                inset 2px 0 4px rgba(0,0,0,0.3),
+                0 2px 8px rgba(0,0,0,0.2);
+            transform-origin: center;
+            animation: rollRotate 20s linear infinite;
+        }
+
+        @keyframes rollRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(3600deg); }
+        }
+
+        .carpet {
+            position: absolute;
+            top: 25px;
+            right: 15px;
+            width: 90px;
+            height: 0;
+            background: repeating-linear-gradient(
+                0deg,
+                #DC143C 0px, #DC143C 12px,
+                #1a1a1a 12px, #1a1a1a 13px,
+                #FF1493 13px, #FF1493 25px,
+                #1a1a1a 25px, #1a1a1a 26px,
+                #FF6B47 26px, #FF6B47 38px,
+                #1a1a1a 38px, #1a1a1a 39px,
+                #8B008B 39px, #8B008B 51px,
+                #1a1a1a 51px, #1a1a1a 52px,
+                #DC143C 52px, #DC143C 64px,
+                #1a1a1a 64px, #1a1a1a 65px,
+                #FF4500 65px, #FF4500 77px,
+                #1a1a1a 77px, #1a1a1a 78px,
+                #C71585 78px, #C71585 90px,
+                #1a1a1a 90px, #1a1a1a 91px,
+                #B22222 91px, #B22222 103px,
+                #1a1a1a 103px, #1a1a1a 104px
+            );
+            animation: unroll 20s ease-out forwards;
+            box-shadow:
+                2px 0 6px rgba(0,0,0,0.2),
+                -2px 0 4px rgba(0,0,0,0.1);
+            border-left: 2px solid #fff;
+            border-right: 2px solid #fff;
+        }
+
+        @keyframes unroll {
+            0% {
+                height: 0;
+                opacity: 0.8;
+            }
+            5% {
+                height: 20px;
+                opacity: 1;
+            }
+            100% {
+                height: calc(100vh - 150px);
+                opacity: 1;
+            }
+        }
+
+        .carpet::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            height: 8px;
+            background: repeating-linear-gradient(
+                90deg,
+                #fff 0px, #fff 3px,
+                transparent 3px, transparent 6px
+            );
+            opacity: 0.9;
+        }
+
+        .carpet::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: -2px;
+            right: -2px;
+            height: 12px;
+            background: repeating-linear-gradient(
+                90deg,
+                #fff 0px, #fff 2px,
+                transparent 2px, transparent 4px
+            );
+            opacity: 0.8;
+            animation: fringeWave 3s ease-in-out infinite;
+        }
+
+        @keyframes fringeWave {
+            0%, 100% { transform: translateY(0) scaleY(1); }
+            50% { transform: translateY(1px) scaleY(1.1); }
+        }
+
+        .carpet-texture {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                radial-gradient(circle at 25% 25%, rgba(255,255,255,0.1) 1px, transparent 1px),
+                radial-gradient(circle at 75% 75%, rgba(0,0,0,0.05) 1px, transparent 1px);
+            background-size: 4px 4px, 6px 6px;
+            opacity: 0.6;
+        }
+
+        /* --- Vaipade materjalid: diagonaalsed, peened taustad --- */
+        .materials-bg {
+            position: absolute;
+            inset: 0;
+            background-size: 30% 30%; /* veel väiksem lendav vaip */
+            background-repeat: no-repeat;
+            background-position: 0% 0%;
+            opacity: 0.08; /* veel pehmem, ei tõmba liigselt tähelepanu */
+            pointer-events: none;
+        }
+        .materials-bg-1 { background-image: url('/images/taust_9_laine.png'); }
+        .materials-bg-2 { background-image: url('/images/taust_6_lihtne.png'); }
+        @keyframes flyDiag {
+            0% { background-position: 0% 0%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 100%; }
+        }
+        .fly-diag { animation: flyDiag 22s linear infinite; }
+
+        /* Pehme serva-mask taustade vähendamiseks (ajutine cutout) */
+        .mask-soft {
+            -webkit-mask-image: radial-gradient(ellipse at center, #000 70%, transparent 100%);
+            mask-image: radial-gradient(ellipse at center, #000 70%, transparent 100%);
+        }
+
+        /* --- "Võta ühendust" vaibanupuna --- */
+        .rug-button {
+            position: relative;
+            overflow: hidden;
+            color: #fff;
+        }
+        .rug-button::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url('/images/taust_17.4.png');
+            background-size: cover;
+            background-position: right center; /* rull paremal pool */
+            transform: scaleX(-1); /* peegelda, et muster oleks teistpidi */
+            z-index: 0;
+        }
+        .rug-button > span {
+            position: relative;
+            z-index: 2;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header class="bg-white/80 backdrop-blur-sm sticky top-0 z-50 border-b border-gray-200/80">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <a href="index.html" class="flex items-center">
+                    <img src="/images/Saku Vaibad Logo.png" alt="Saku Vaibad Logo" class="h-12 w-12 md:h-14 md:w-14 rounded-full object-cover">
+                </a>
+            </div>
+            
+            <!-- Desktop Menu -->
+            <nav id="desktop-nav" class="hidden md:flex space-x-8 items-center">
+                <a href="#lugu" data-section="lugu" class="text-brand-text hover:text-brand-accent transition-all duration-300">Tegija lugu</a>
+                <a href="#vaibad" data-section="vaibad" class="text-brand-text hover:text-brand-accent transition-all duration-300">Vaipade materjalid</a>
+                <a href="galerii.html" class="text-brand-text hover:text-brand-accent transition-all duration-300">Vaipade galerii</a>
+            </nav>
+            <a href="#kontakt" class="hidden md:inline-block rug-button text-white font-bold rounded-xl px-7 py-3 md:px-9 md:py-4 hover:shadow-lg hover:scale-105 transition-all">
+                <span>Võta ühendust</span>
+            </a>
+
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button id="menu-toggle" class="text-brand-title focus:outline-none">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <nav class="px-4 pt-2 pb-4 space-y-2">
+                <a href="#lugu" data-section="lugu" class="block text-brand-text hover:text-brand-accent transition-colors py-2">Tegija lugu</a>
+                <a href="#vaibad" data-section="vaibad" class="block text-brand-text hover:text-brand-accent transition-colors py-2">Vaipade materjalid</a>
+                <a href="galerii.html" class="block text-brand-text hover:text-brand-accent transition-colors py-2">Vaipade galerii</a>
+                <a href="#kontakt" class="block rug-button text-white font-bold rounded-xl px-7 py-3 hover:shadow-lg transition-all mt-4 text-center"><span>Võta ühendust</span></a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Lahtirulluv vaip: HTML -->
+        <div class="carpet-container" aria-hidden="true">
+            <div class="carpet-roll" id="carpetRoll"></div>
+            <div class="carpet" id="carpet">
+                <div class="carpet-texture"></div>
+            </div>
+        </div>
+        
+        <!-- Hero Section -->
+        <section class="relative text-center min-h-[80vh] md:min-h-screen py-20 md:py-32 px-6 bg-cover bg-center flex items-start justify-center" style="background-image: url('/images/4.jpeg');">
+            <div class="absolute inset-0 bg-white/70"></div>
+            <div class="container mx-auto relative pt-12 md:pt-18">
+                <h1 class="text-4xl md:text-6xl font-bold font-serif leading-tight mb-2 text-shadow">Saku Vaibad</h1>
+            </div>
+        </section>
+
+        
+
+        <!-- Tervitustekst – tekst vasakul, pilt paremal -->
+        <section class="py-16 sm:py-24 md:min-h-screen flex items-center">
+            <div class="container mx-auto px-6 max-w-6xl">
+                <h2 class="text-center text-2xl md:text-3xl font-semibold text-brand-title mb-8">Tere tulemast minu väikesesse vaibavabrikusse!</h2>
+                <div class="bg-white p-8 md:p-12 rounded-2xl shadow-sm grid md:[grid-template-columns:1fr_1.35fr] gap-12 md:gap-14 items-center border-l-8 border-pastel-blue/60">
+                    <div class="prose prose-lg max-w-none text-brand-text">
+                        <h2 class="sr-only">Tervitustekst</h2>
+                        <p class="leading-relaxed text-lg">Siin, Saku aedlinna südames, saavad kokku põlvest põlve edasi antud oskused ja tänapäeva värvitunnetus. Need vaibad ei ole lihtsalt põrandakatted – igaühel on oma lugu ning need on kokku kootud vanadel, väärikatel kangastelgedel. Iga vaip on kordumatu ning kannab endas killukest Eesti käsitöö pärandist ja on loodud tooma sinu koju soojust, pehmust ja isikupära.</p>
+                    </div>
+                    <div>
+                        <img src="/images/Maja_talv_2.png" alt="Saku aedlinna maja talvel" class="rounded-2xl shadow-lg w-full h-auto md:h-[520px] object-contain">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+
+        <!-- Looja Lugu -->
+        <section id="lugu" class="py-16 sm:py-24 md:min-h-screen flex items-center">Tegija Lugu<div class="container mx-auto px-6 max-w-6xl">
+                <h2 class="text-center text-2xl md:text-3xl font-semibold text-brand-title mb-8">Tegija Lugu</h2>
+                <div class="bg-white p-8 md:p-12 rounded-2xl shadow-sm grid md:grid-cols-2 gap-12 items-center border-l-8 border-pastel-pink/60">
+                    <div class="prose prose-lg max-w-none text-brand-text">
+                        <p class="leading-relaxed text-lg">Olen kutsumuselt iluaednik, kuid kui aed lume tulekul unele vajub, siis on vaibakudumine minu jaoks tore talvine hobi. See annab mõttele ainet ja täidab hallimadki talvepäevad värvidega. Kui kevadine päike jälle tuppa piilub, algab taas järgmine loomeaeg. See on aastaaegade rütm. Nii see elu käibki – värvid ja mustrid liiguvad aiast tuppa ja toast aeda.</p>
+                    </div>
+                    <div>
+                        <img src="/images/maja_talv.png" alt="Maja talvine vaade" class="rounded-2xl shadow-lg w-full h-auto md:h-[520px] object-contain">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        
+
+        <!-- Vaipade materjalid (3 alamsektsiooni eristuva taustaga) -->
+        <section id="vaibad" class="py-16 sm:py-24">
+            <div class="container mx-auto px-6 space-y-10 md:space-y-12">
+                <div class="text-center max-w-3xl mx-auto">
+                    <h2 class="text-2xl md:text-3xl font-semibold text-brand-title mb-2">Vaipade materjalid</h2>
+                </div>
+
+                <!-- 1. Puuvillavaibad -->
+                <div class="relative overflow-hidden bg-white rounded-2xl shadow-sm border-l-8 border-pastel-purple/60 p-8 md:p-12">
+                    <div class="materials-bg materials-bg-1 fly-diag"></div>
+                    <div class="relative grid md:grid-cols-2 gap-10 items-center">
+                        <div class="prose prose-lg max-w-none text-brand-text order-2 md:order-1">
+                            <h3 class="text-2xl md:text-3xl font-semibold mb-2 text-brand-title">1. Puuvillavaibad</h3>
+                            <p class="text-base md:text-lg mb-3">Modernne taaskasutus sinu koju</p>
+                            <p class="text-lg">Meie puuvillavaibad on kootud 100% tööstuslikest trikotaažijääkidest. Sellest materjalist sünnivad pikad ja ühtlase koega vaibad: tedremunakirjalised, triibumängulised või ühevärvilised. Materjali on alati rohkem, kui üheks vaibaks vaja, mis tagab võimaluse luua täpselt Sinu soovidele vastav teos. Õhem tekstuur lubab kuni kahemeetriseid vaipu pesta pesumasinas.</p>
+                            <p class="text-lg mt-3">Näide: Tumesinise ja valge kirjusegune pikk vaip, mille toone saab kudumise käigus muuta – lisada natuke rohkem sinist või valget, et luua just see õige nüanss.</p>
+                        </div>
+                        <div class="order-1 md:order-2">
+                            <img src="/images/10.jpeg" alt="Puuvillavaiba näidis" class="rounded-xl shadow w-full h-auto object-cover mask-soft">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Taaskasutatud kangas (kaltsuvaip) -->
+                <div class="relative overflow-hidden bg-white rounded-2xl shadow-sm border-l-8 border-pastel-blue/60 p-8 md:p-12">
+                    <div class="relative grid md:grid-cols-2 gap-10 items-center">
+                        <div>
+                            <img src="/images/4.jpeg" alt="Kaltsuvaiba näidis" class="rounded-xl shadow w-full h-auto object-cover mask-soft">
+                        </div>
+                        <div class="prose prose-lg max-w-none text-brand-text">
+                            <h3 class="text-2xl md:text-3xl font-semibold mb-2 text-brand-title">2. Kaltsuvaibad</h3>
+                            <p class="text-base md:text-lg mb-3">Värviline pärand uues kuues</p>
+                            <p class="text-lg">Veel 19. sajandil kooti kangastelgedel kogu kodus vajaminev riie. See oli töömahukas ja seetõttu kallis. Kui riie oli kulunud, lõigati see ribadeks ja kooti kaltsuvaibaks. Kuna iga värvi ja mustriga kangast leidus, said ka kaltsuvaibad eriti värvilised. Tänapäeval nimetame seda taaskasutuseks, mis meie küllusesajandil üha rohkem moodi läheb. Mulle meeldib koguda kokku ühte tooni kaltsukerasid ja need omavahel sünergiasse siduda. Kaltsuvaibas on kõige tähtsamad värvid.</p>
+                            <p class="text-lg mt-3">On samblarohelisi, mererohelisi, kollasest, lillast ja purpurist saab toreda rõõmsa koosluse. Punastest toonidest valmib pikk ja pidulik pulmavaip, jahedatest toonidest põimub muinasjutuline viiemeetrine ületoavaip. Leidub viiskümmend valge varjundit naaritsaribadega – ja nii edasi, ja nii edasi.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Looduslikud segud -->
+                <div class="relative overflow-hidden bg-white rounded-2xl shadow-sm border-l-8 border-pastel-mint/60 p-8 md:p-12">
+                    <div class="materials-bg materials-bg-1 fly-diag"></div>
+                    <div class="relative grid md:grid-cols-2 gap-10 items-center">
+                        <div class="prose prose-lg max-w-none text-brand-text order-2 md:order-1">
+                            <h3 class="text-2xl md:text-3xl font-semibold mb-2 text-brand-title">3. Villavaibad</h3>
+                            <p class="text-base md:text-lg mb-3">Luksuslik soojus ja pehmus</p>
+                            <p class="text-lg">Kujutle, et astud paljajalu pehmele, soojale ja vetruvale pilvele – just selline tunne on astuda meie täisvillasele vaibale. Algselt on need vaibad lausa sentimeetripaksused, pakkudes erakordset mugavust. Aja ja kasutusega muutuvad need pisut tihedamaks, kuid säilitavad oma soojuse ja pehmuse aastateks. Villavaip on investitsioon heaolusse, tuues tuppa ehedat hubasust ja naturaalset elegantsi.</p>
+                            <p class="text-lg mt-3">Ka villased vaibad on taaskasutus. Mõnes triibus on lambavillast, mõnes poolvillane, mõnes meriinosegune, mõnes isegi angoorat või kitsevilla. Villased vaibad on kootud ribastatud villastest kudumitest või lõngast – jahedate põrandate korral vastupandamatult luksuslik.</p>
+                        </div>
+                        <div class="order-1 md:order-2">
+                            <img src="/images/14.jpeg" alt="Villavaiba näidis" class="rounded-xl shadow w-full h-auto object-cover mask-soft">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Kontakt -->
+        <section id="kontakt" class="relative py-20 sm:py-32 md:min-h-screen flex items-center bg-cover bg-center" style="background-image: url('/images/15.jpeg');">
+            <div class="absolute inset-0 bg-white/70"></div>
+            <div class="container mx-auto px-6 max-w-6xl relative z-10">
+                <div class="bg-white p-8 md:p-12 rounded-2xl shadow-sm max-w-5xl mx-auto border-l-8 border-pastel-pink/60">
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <!-- Vasak pool: pilt -->
+                        <div>
+                            <img src="/images/taust_17_lainetav_lobus.png" alt="Punane tantsiv vaip" class="rounded-2xl shadow w-full h-auto md:h-[520px] object-contain">
+                        </div>
+                        <!-- Parem pool: kontakt-info -->
+                        <div class="text-left">
+                            <h2 class="text-2xl md:text-3xl font-semibold text-brand-title mb-4">Võta ühendust</h2>
+                            <p class="max-w-xl text-lg text-brand-text mb-6">Saame arutada vaiba pikkust, värve ja materjalivalikut.</p>
+                            <div class="text-base md:text-xl space-y-4 max-w-md">
+                                <p class="flex items-center gap-3 flex-nowrap">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-8 h-8 md:w-9 md:h-9 text-[#DC143C]"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.25 6.75c0 8.284 6.716 15 15 15h1.5a.75.75 0 0 0 .75-.75v-3.036a.75.75 0 0 0-.633-.74l-3.318-.553a.75.75 0 0 0-.788.417l-.845 1.69a12.042 12.042 0 0 1-5.292-5.292l1.69-.845a.75.75 0 0 0 .417-.788l-.553-3.318a.75.75 0 0 0-.74-.633H3a.75.75 0 0 0-.75.75v1.5z"/></svg>
+                                    <a href="tel:+53340825" class="text-brand-title hover:text-brand-accent hover:underline">533 40 825</a>
+                                </p>
+                                <p class="flex items-center gap-3 flex-nowrap">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-8 h-8 md:w-9 md:h-9 text-[#DC143C]"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21.75 8.25v8.25a2.25 2.25 0 0 1-2.25 2.25h-15A2.25 2.25 0 0 1 2.25 16.5V8.25m19.5 0A2.25 2.25 0 0 0 19.5 6h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0-8.954 5.596a2.25 2.25 0 0 1-2.292 0L2.25 8.25"/></svg>
+                                    <a href="mailto:tiinamari.viides@gmail.com" class="text-brand-title hover:text-brand-accent hover:underline">tiinamari.viides@gmail.com</a>
+                                </p>
+                                <p class="flex items-center gap-3 flex-nowrap">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-8 h-8 md:w-9 md:h-9 text-[#DC143C]"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 11.25a2.25 2.25 0 1 0 0-4.5 2.25 2.25 0 0 0 0 4.5z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.5 10.5c0 7.5-7.5 12-7.5 12s-7.5-4.5-7.5-12a7.5 7.5 0 1 1 15 0z"/></svg>
+                                    <span class="text-brand-title">Saku, Harjumaa (kohtumine kokkuleppel)</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white">
+        <div class="h-2 bg-gradient-to-r from-pastel-yellow via-pastel-pink to-pastel-blue"></div>
+        <div class="container mx-auto px-6 py-8 text-center text-brand-text/70">
+            <p>&copy; 2025 Saku Vaibad. Kõik õigused kaitstud.</p>
+            <p class="text-xs mt-2 text-brand-text/70">Disainitud ja loodud südamega — by 
+              <a href="https://aistra.ee/" target="_blank" rel="noopener" aria-label="Aistra veebileht (avaneb uues aknas)"
+                 class="inline-flex items-center gap-1 text-brand-text/70 hover:text-brand-title hover:underline decoration-1 underline-offset-2 transition-colors">
+                @aistra
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-3 h-3">
+                  <path d="M14 3h7v7h-2V6.414l-8.293 8.293-1.414-1.414L17.586 5H14V3z"/>
+                  <path d="M5 5h7v2H7v10h10v-5h2v7H5V5z"/>
+                </svg>
+              </a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuToggle.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Active link highlighting on scroll
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('#desktop-nav a, #mobile-menu a');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const sectionId = entry.target.id;
+                        navLinks.forEach(link => {
+                            link.classList.remove('nav-active', 'nav-active-lugu', 'nav-active-vaibad', 'nav-active-kontakt');
+                            if (link.dataset.section === sectionId) {
+                                link.classList.add('nav-active', `nav-active-${sectionId}`);
+                            }
+                        });
+                    }
+                });
+            }, { rootMargin: '-50% 0px -50% 0px' });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+            // Close mobile menu when a link is clicked
+            const mobileNavLinks = document.querySelectorAll('#mobile-menu a');
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            
+        });
+
+        // --- Lahtirulluva vaiba juhtfunktsioonid ---
+        function restartAnimation() {
+            const carpet = document.getElementById('carpet');
+            const carpetRoll = document.getElementById('carpetRoll');
+            if (!carpet || !carpetRoll) return;
+            carpet.style.animation = 'none';
+            carpetRoll.style.animation = 'none';
+            // Force reflow
+            void carpet.offsetHeight;
+            void carpetRoll.offsetHeight;
+            // Re-apply animations
+            carpet.style.animation = 'unroll 20s ease-out forwards';
+            carpetRoll.style.animation = 'rollRotate 20s linear infinite';
+        }
+
+        function pauseAnimation() {
+            const carpet = document.getElementById('carpet');
+            const carpetRoll = document.getElementById('carpetRoll');
+            if (!carpet || !carpetRoll) return;
+            carpet.style.animationPlayState = 'paused';
+            carpetRoll.style.animationPlayState = 'paused';
+        }
+
+        function resumeAnimation() {
+            const carpet = document.getElementById('carpet');
+            const carpetRoll = document.getElementById('carpetRoll');
+            if (!carpet || !carpetRoll) return;
+            carpet.style.animationPlayState = 'running';
+            carpetRoll.style.animationPlayState = 'running';
+        }
+
+        // Auto-restart animation every 25 seconds
+        setInterval(() => {
+            restartAnimation();
+        }, 25000);
+    </script>
+
+</body>
+</html>

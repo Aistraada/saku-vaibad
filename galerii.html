@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="et" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vaipade Galerii – Saku Vaibad</title>
+    <meta name="description" content="Avasta kõik meie poolt kootud unikaalsed käsitöövaibad. Iga vaip on kordumatu ja ootab oma kodu.">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-bg': '#F8F8F8',
+                        'brand-text': '#4A4A4A',
+                        'brand-title': '#493B49',
+                        'brand-accent': '#B9E4DB',
+                        'pastel-blue': '#A7D9FF',
+                        'pastel-yellow': '#FFF9C4',
+                        'pastel-pink': '#FFD1D1',
+                        'pastel-mint': '#C2F9C7',
+                        'pastel-purple': '#E0BBE4',
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #F8F8F8;
+            color: #4A4A4A;
+            font-family: 'Open Sans', sans-serif;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Lora', serif;
+            color: #493B49;
+        }
+        .text-shadow {
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+        }
+        .nav-active-galerii {
+            color: #B9E4DB !important; /* brand-accent */
+            font-weight: bold;
+            transform: scale(1.05);
+        }
+        #lightbox {
+            transition: opacity 0.3s ease-in-out;
+        }
+        #lightbox-image {
+            transition: transform 0.3s ease-in-out;
+        }
+        #lightbox.hidden #lightbox-image {
+            transform: scale(0.9);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header class="bg-white/80 backdrop-blur-sm sticky top-0 z-50 border-b border-gray-200/80">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-3">
+                <img src="/images/Saku Vaibad Logo.png" alt="Saku Vaibad Logo" class="h-12 md:h-14">
+            </a>
+            
+            <!-- Desktop Menu -->
+            <nav id="desktop-nav" class="hidden md:flex space-x-8 items-center">
+                <a href="index.html#lugu" class="text-brand-text hover:text-brand-accent transition-all duration-300">Tegija lugu</a>
+                <a href="index.html#vaibad" class="text-brand-text hover:text-brand-accent transition-all duration-300">Vaipade materjalid</a>
+                <a href="galerii.html" class="nav-active-galerii transition-all duration-300">Vaipade galerii</a>
+            </nav>
+            <a href="index.html#kontakt" class="hidden md:inline-block bg-brand-accent text-brand-title font-bold rounded-full px-6 py-3 hover:shadow-lg hover:scale-105 transition-all">
+                Võta ühendust
+            </a>
+
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button id="menu-toggle" class="text-brand-title focus:outline-none">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <nav class="px-4 pt-2 pb-4 space-y-2">
+                <a href="index.html#lugu" class="block text-brand-text hover:text-brand-accent transition-colors py-2">Tegija lugu</a>
+                <a href="index.html#vaibad" class="block text-brand-text hover:text-brand-accent transition-colors py-2">Vaipade materjalid</a>
+                <a href="galerii.html" class="block nav-active-galerii transition-colors py-2">Vaipade galerii</a>
+                <a href="index.html#kontakt" class="block bg-brand-accent text-brand-title font-bold rounded-full px-6 py-3 hover:shadow-lg transition-all mt-4 text-center">Võta ühendust</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- PILDIGALERII -->
+        <section id="galerii" class="py-20 sm:py-32">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h1 class="text-4xl md:text-6xl font-bold font-serif leading-tight mb-4 text-shadow">Vaipade Galerii</h1>
+                    <p class="text-lg text-brand-text/80">Siin on täielik ülevaade meie valminud töödest. Iga vaip on ainulaadne ja ootab oma kodu. Huvi korral võta meiega ühendust ja maini vaiba numbrit!</p>
+                </div>
+                <div class="grid md:grid-cols-1 lg:grid-cols-2 gap-10">
+                    
+                    <div class="rounded-2xl shadow-sm overflow-hidden group bg-pastel-yellow/50 p-6"><h3 class="text-2xl font-bold mb-2">Vaip nr. 1</h3><p class="text-brand-text/80 mb-4">Klassikaline kaltsuvaip, milles kohtuvad helesinine, beež ja roosakas toon. Rahulik ja maalähedane värvigamma, mis sobib ideaalselt näiteks suvekodu esikusse.</p><div class="grid grid-cols-2 gap-4"><a href="/images/1.jpeg" class="lightbox-trigger"><img src="/images/1.jpeg" alt="Vaip nr. 1" class="rounded-lg w-full h-64 object-cover cursor-pointer group-hover:opacity-90 transition-opacity duration-300"></a><a href="/images/1.1.jpeg" class="lightbox-trigger"><img src="/images/1.1.jpeg" alt="Vaip nr. 1 detail" class="rounded-lg w-full h-64 object-cover cursor-pointer group-hover:opacity-90 transition-opacity duration-300"></a></div></div>
+                    <div class="rounded-2xl shadow-sm overflow-hidden group bg-pastel-pink/50 p-6"><h3 class="text-2xl font-bold mb-2">Vaip nr. 2</h3><p class="text-brand-text/80 mb-4">Tihedakoeline ja vastupidav kaltsuvaip helgetes toonides. Domineerivad valged, kreemikad ja õrn-beežid triibud, mis loovad puhta ja avara tunde.</p><div class="grid grid-cols-2 gap-4"><a href="/images/2.jpeg" class="lightbox-trigger"><img src="/images/2.jpeg" alt="Vaip nr. 2" class="rounded-lg w-full h-64 object-cover cursor-pointer group-hover:opacity-90 transition-opacity duration-300"></a><a href="/images/2.1.jpeg" class="lightbox-trigger"><img src="/images/2.1.jpeg" alt="Vaip nr. 2 detail" class="rounded-lg w-full h-64 object-cover cursor-pointer group-hover:opacity-90 transition-opacity duration-300"></a></div></div>
+                    <div class="rounded-2xl shadow-sm overflow-hidden group bg-pastel-mint/50 p-6"><h3 class="text-2xl font-bold mb-2">Vaip nr. 3</h3><p class="text-brand-text/80 mb-4">Tõeliselt rõõmsavärviline kaltsuvaip, kus on kasutatud laia spektrit värve: oranž, sinine, pruun, türkiis ja roosa. Energiline ja pilkupüüdev.</p><div class="grid grid-cols-2 gap-4"><a href="/images/3.jpeg" class="lightbox-trigger"><img src="/images/3.jpeg" alt="Vaip nr. 3" class="rounded-lg w-full h-64 object-cover cursor-pointer group-hover:opacity-90 transition-opacity duration-300"></a><a href="/images/3.1.jpeg" class="lightbox-trigger"><img src="/images/3.1.jpeg" alt="Vaip nr. 3 detail" class="rounded-lg w-full h-64 object-cover cursor-pointer group-hover:opacity-90 transition-opacity duration-300"></a></div></div>
+                    <div class="rounded-2xl shadow-sm overflow-hidden group bg-pastel-purple/50 p-6"><h3 class="text-2xl font-bold mb-2">Vaip nr. 4</h3><p class="text-brand-text/80 mb-4">Merevärvides kaltsuvaip, kus segunevad erinevad sinised ja rohekad toonid. Toob tuppa suvise ja värskendava meeleolu.</p><div class="grid grid-cols-2 gap-4"><a href="/images/4.jpeg" class="lightbox-trigger"><img src="/images/4.jpeg" alt="Vaip nr. 4" class="rounded-lg w-full h-64 object-cover cursor-pointer group-hover:opacity-90 transition-opacity duration-300"></a><a href="/images/4.1.jpeg" class="lightbox-trigger"><img src="/images/4.1.jpeg" alt="Vaip nr. 4 detail" class="rounded-lg w-full h-64 object-cover cursor-pointer group-hover:opacity-90 transition-opacity duration-300"></a></div></div>
+                    <div class="rounded-2xl shadow-sm overflow-hidden group bg-pastel-blue/30 p-6"><h3 class="text-2xl font-bold mb-2">Vaip nr. 5</h3><p class="text-brand-text/80 mb-4">Kvaliteetne ja tihe vaip julgetes värvides: sügav lilla, sinepikollane ja kreemjas valge. Tugev ja iseloomuga põrandakate.</p><div class="grid grid-cols-2 gap-4"><a href="/images/5.jpeg" class="lightbox-trigger"><img src="/images/5.jpeg" alt="Vaip nr. 5" class="rounded-lg w-full h-64 object-cover cursor-pointer group-hover:opacity-90 transition-opacity duration-300"></a><a href="/images/5.1.jpeg" class="lightbox-trigger"><img src="/images/5.1.jpeg" alt="Vaip nr. 5 detail" class="rounded-lg w-full h-64 object-cover cursor-pointer group-hover:opacity-90 transition-opacity duration-300"></a></div></div>
+                    <div class="rounded-2xl shadow-sm overflow-hidden group bg-pastel-yellow/50 p-6"><h3 class="text-2xl font-bold mb-2">Vaip nr. 6</h3><p class="text-brand-text/80 mb-4">Elegantne ja luksusliku välimusega vaip, kus domineerivad lillad, sirelikarva ja kuldsed toonid. Pehme ja tihe kude viitab kvaliteetsele villamaterjalile.</p><div class="grid grid-cols-2 gap-4"><a href="/images/6.jpeg" class="lightbox-trigger"><img src="/images/6.jpeg" alt="Vaip nr. 6" class="rounded-lg w-full h-64 object-cover cursor-pointer group-hover:opacity-90 transition-opacity duration-300"></a><a href="/images/6.1.jpeg" class="lightbox-trigger"><img src="/images/6.1.jpeg" alt="Vaip nr. 6 detail" class="rounded-lg w-full h-64 object-cover cursor-pointer group-hover:opacity-90 transition-opacity duration-300"></a></div></div>
+                    <div class="rounded-2xl shadow-sm overflow-hidden group bg-pastel-pink/50 p-6"><h3 class="text-2xl font-bold mb-2">Vaip nr. 7</h3><p class="text-brand-text/80 mb-4">Stiilne teksavaip! Valmistatud erinevat tooni teksariidest, mis annab vastupidava ja modernse tulemuse. Praktiline ja alati moes.</p><div class="grid grid-cols-2 gap-4"><a href="/images/7.jpeg" class="lightbox-trigger"><img src="/images/7.jpeg" alt="Vaip nr. 7" class="rounded-lg w-full h-64 object-cover cursor-pointer group-hover:opacity-90 transition-opacity duration-300"></a><a href="/images/7.1.jpeg" class="lightbox-trigger"><img src="/images/7.1.jpeg" alt="Vaip nr. 7 detail" class="rounded-lg w-full h-64 object-cover cursor-pointer group-hover:opacity-90 transition-opacity duration-300"></a></div></div>
+                    <div class="rounded-2xl shadow-sm overflow-hidden group bg-pastel-mint/50 p-6"><h3 class="text-2xl font-bold mb-2">Vaip nr. 8</h3><p class="text-brand-text/80 mb-4">Jõulise kontrastiga kaltsuvaip, kus vahelduvad tumesinine ja mustriline helesinine. Graafiline ja modernne valik, mis loob tugeva visuaalse aktsendi.</p><div class="grid grid-cols-2 gap-4"><a href="/images/8.jpeg" class="lightbox-trigger"><img src="/images/8.jpeg" alt="Vaip nr. 8" class="rounded-lg w-full h-64 object-cover cursor-pointer group-hover:opacity-90 transition-opacity duration-300"></a><a href="/images/8.1.jpeg" class="lightbox-trigger"><img src="/images/8.1.jpeg" alt="Vaip nr. 8 detail" class="rounded-lg w-full h-64 object-cover cursor-pointer group-hover:opacity-90 transition-opacity duration-300"></a></div></div>
+                    <div class="rounded-2xl shadow-sm overflow-hidden group bg-pastel-purple/50 p-6"><h3 class="text-2xl font-bold mb-2">Vaip nr. 9</h3><p class="text-brand-text/80 mb-4">Maa-lähedastes toonides kaltsuvaip. Erinevad rohelised, alates samblikust kuni erksa laimiroheliseni, loovad metsiku ja naturaalse mustri.</p><div class="grid grid-cols-2 gap-4"><a href="/images/9.jpeg" class="lightbox-trigger"><img src="/images/9.jpeg" alt="Vaip nr. 9" class="rounded-lg w-full h-64 object-cover cursor-pointer group-hover:opacity-90 transition-opacity duration-300"></a><a href="/images/9.1.jpeg" class="lightbox-trigger"><img src="/images/9.1.jpeg" alt="Vaip nr. 9 detail" class="rounded-lg w-full h-64 object-cover cursor-pointer group-hover:opacity-90 transition-opacity duration-300"></a></div></div>
+                    <div class="rounded-2xl shadow-sm overflow-hidden group bg-pastel-blue/30 p-6"><h3 class="text-2xl font-bold mb-2">Vaip nr. 10</h3><p class="text-brand-text/80 mb-4">Akvamariini ja türkiissinistes toonides kaltsuvaip, mis meenutab suvist merevett. Värske ja rahustav, ideaalne vannituppa või magamistuppa.</p><div class="grid grid-cols-2 gap-4"><a href="/images/10.jpeg" class="lightbox-trigger"><img src="/images/10.jpeg" alt="Vaip nr. 10" class="rounded-lg w-full h-64 object-cover cursor-pointer group-hover:opacity-90 transition-opacity duration-300"></a><a href="/images/10.1.jpeg" class="lightbox-trigger"><img src="/images/10.1.jpeg" alt="Vaip nr. 10 detail" class="rounded-lg w-full h-64 object-cover cursor-pointer group-hover:opacity-90 transition-opacity duration-300"></a></div></div>
+                    <div class="rounded-2xl shadow-sm overflow-hidden group bg-pastel-yellow/50 p-6"><h3 class="text-2xl font-bold mb-2">Vaip nr. 11</h3><p class="text-brand-text/80 mb-4">Pehme ja tiheda koega villavaip. Hallid ja mündirohelised toonid loovad rahuliku ja harmoonilise meeleolu. Väga elegantne ja tagasihoidlik.</p><div class="grid grid-cols-2 gap-4"><a href="/images/11.jpeg" class="lightbox-trigger"><img src="/images/11.jpeg" alt="Vaip nr. 11" class="rounded-lg w-full h-64 object-cover cursor-pointer group-hover:opacity-90 transition-opacity duration-300"></a><a href="/images/11.1.jpeg" class="lightbox-trigger"><img src="/images/11.1.jpeg" alt="Vaip nr. 11 detail" class="rounded-lg w-full h-64 object-cover cursor-pointer group-hover:opacity-90 transition-opacity duration-300"></a></div></div>
+                    <div class="rounded-2xl shadow-sm overflow-hidden group bg-pastel-pink/50 p-6"><h3 class="text-2xl font-bold mb-2">Vaip nr. 12</h3><p class="text-brand-text/80 mb-4">Naturaalsetes toonides kaltsuvaip, kus on kasutatud beeži, halli ja õrnu rohekaid varjundeid. Lihtne ja ajatu disain, mis sobib igasse interjööri.</p><div class="grid grid-cols-2 gap-4"><a href="/images/12.jpeg" class="lightbox-trigger"><img src="/images/12.jpeg" alt="Vaip nr. 12" class="rounded-lg w-full h-64 object-cover cursor-pointer group-hover:opacity-90 transition-opacity duration-300"></a><a href="/images/12.1.jpeg" class="lightbox-trigger"><img src="/images/12.1.jpeg" alt="Vaip nr. 12 detail" class="rounded-lg w-full h-64 object-cover cursor-pointer group-hover:opacity-90 transition-opacity duration-300"></a></div></div>
+                    <div class="rounded-2xl shadow-sm overflow-hidden group bg-pastel-mint/50 p-6"><h3 class="text-2xl font-bold mb-2">Vaip nr. 13</h3><p class="text-brand-text/80 mb-4">Rõõmsalt kirju kaltsuvaip, kus on segunenud kümneid erinevaid värve, luues konfeti-sarnase efekti. Väga mänguline ja unikaalne.</p><div class="grid grid-cols-2 gap-4"><a href="/images/13.jpeg" class="lightbox-trigger"><img src="/images/13.jpeg" alt="Vaip nr. 13" class="rounded-lg w-full h-64 object-cover cursor-pointer group-hover:opacity-90 transition-opacity duration-300"></a><a href="/images/13.1.jpeg" class="lightbox-trigger"><img src="/images/13.1.jpeg" alt="Vaip nr. 13 detail" class="rounded-lg w-full h-64 object-cover cursor-pointer group-hover:opacity-90 transition-opacity duration-300"></a></div></div>
+                    <div class="rounded-2xl shadow-sm overflow-hidden group bg-pastel-purple/50 p-6"><h3 class="text-2xl font-bold mb-2">Vaip nr. 14</h3><p class="text-brand-text/80 mb-4">Klassikaline sinivalge kaltsuvaip, millele lisavad soojust beežid triibud. Ajatu ja kodune valik, mis loob puhta ja korras tunde.</p><div class="grid grid-cols-2 gap-4"><a href="/images/14.jpeg" class="lightbox-trigger"><img src="/images/14.jpeg" alt="Vaip nr. 14" class="rounded-lg w-full h-64 object-cover cursor-pointer group-hover:opacity-90 transition-opacity duration-300"></a><a href="/images/14.1.jpeg" class="lightbox-trigger"><img src="/images/14.1.jpeg" alt="Vaip nr. 14 detail" class="rounded-lg w-full h-64 object-cover cursor-pointer group-hover:opacity-90 transition-opacity duration-300"></a></div></div>
+                    <div class="rounded-2xl shadow-sm overflow-hidden group bg-pastel-blue/30 p-6"><h3 class="text-2xl font-bold mb-2">Vaip nr. 15</h3><p class="text-brand-text/80 mb-4">Päikesekollane ja oranž – see vaip on puhas energia ja optimism.</p><div class="grid grid-cols-2 gap-4"><a href="/images/15.jpeg" class="lightbox-trigger"><img src="/images/15.jpeg" alt="Vaip nr. 15" class="rounded-lg w-full h-64 object-cover cursor-pointer group-hover:opacity-90 transition-opacity duration-300"></a><a href="/images/15.1.jpeg" class="lightbox-trigger"><img src="/images/15.1.jpeg" alt="Vaip nr. 15 detail" class="rounded-lg w-full h-64 object-cover group-hover:opacity-90 transition-opacity duration-300"></a></div></div>
+                    <div class="rounded-2xl shadow-sm overflow-hidden group bg-pastel-yellow/50 p-6"><h3 class="text-2xl font-bold mb-2">Vaip nr. 16</h3><p class="text-brand-text/80 mb-4">Lillakas-sinine värvigamma, mis meenutab sireliõite aega.</p><div class="grid grid-cols-2 gap-4"><a href="/images/16.jpeg" class="lightbox-trigger"><img src="/images/16.jpeg" alt="Vaip nr. 16" class="rounded-lg w-full h-64 object-cover cursor-pointer group-hover:opacity-90 transition-opacity duration-300"></a><a href="/images/16.1.jpeg" class="lightbox-trigger"><img src="/images/16.1.jpeg" alt="Vaip nr. 16 detail" class="rounded-lg w-full h-64 object-cover cursor-pointer group-hover:opacity-90 transition-opacity duration-300"></a></div></div>
+                    <div class="lg:col-span-2 rounded-2xl shadow-sm overflow-hidden group bg-pastel-pink/50 p-6"><h3 class="text-2xl font-bold mb-2">Vaip nr. 17</h3><p class="text-brand-text/80 mb-4">Rikkalik värvivalik, kus kohtuvad soojad ja külmad toonid. Tõeline kunstiteos, millel on mitu pilti, et näidata selle mitmekülgsust.</p><div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4"><a href="/images/17.jpeg" class="lightbox-trigger"><img src="/images/17.jpeg" alt="Vaip nr. 17" class="rounded-lg w-full h-48 object-cover cursor-pointer group-hover:opacity-90 transition-opacity duration-300"></a><a href="/images/17.1.jpeg" class="lightbox-trigger"><img src="/images/17.1.jpeg" alt="Vaip nr. 17 detail 1" class="rounded-lg w-full h-48 object-cover cursor-pointer group-hover:opacity-90 transition-opacity duration-300"></a><a href="/images/17.2.jpeg" class="lightbox-trigger"><img src="/images/17.2.jpeg" alt="Vaip nr. 17 detail 2" class="rounded-lg w-full h-48 object-cover cursor-pointer group-hover:opacity-90 transition-opacity duration-300"></a><a href="/images/17.3.jpeg" class="lightbox-trigger"><img src="/images/17.3.jpeg" alt="Vaip nr. 17 detail 3" class="rounded-lg w-full h-48 object-cover group-hover:opacity-90 transition-opacity duration-300"></a><a href="/images/17.4.jpeg" class="lightbox-trigger"><img src="/images/17.4.jpeg" alt="Vaip nr. 17 detail 4" class="rounded-lg w-full h-48 object-cover cursor-pointer group-hover:opacity-90 transition-opacity duration-300"></a></div></div>
+                    <div class="rounded-2xl shadow-sm overflow-hidden group bg-pastel-mint/50 p-6"><h3 class="text-2xl font-bold mb-2">Vaip nr. 18</h3><p class="text-brand-text/80 mb-4">Klassikaline punane ja valge, mis sobib ideaalselt talupoja stiilis kööki.</p><div class="grid grid-cols-2 gap-4"><a href="/images/18.jpeg" class="lightbox-trigger"><img src="/images/18.jpeg" alt="Vaip nr. 18" class="rounded-lg w-full h-64 object-cover cursor-pointer group-hover:opacity-90 transition-opacity duration-300"></a><a href="/images/18.1.jpeg" class="lightbox-trigger"><img src="/images/18.1.jpeg" alt="Vaip nr. 18 detail" class="rounded-lg w-full h-64 object-cover cursor-pointer group-hover:opacity-90 transition-opacity duration-300"></a></div></div>
+                    <div class="rounded-2xl shadow-sm overflow-hidden group bg-pastel-purple/50 p-6"><h3 class="text-2xl font-bold mb-2">Vaip nr. 19</h3><p class="text-brand-text/80 mb-4">Mitmekesine ja kirju, justkui killuke kõigist teistest vaipadest.</p><div class="grid grid-cols-2 gap-4"><a href="/images/19.jpeg" class="lightbox-trigger"><img src="/images/19.jpeg" alt="Vaip nr. 19" class="rounded-lg w-full h-64 object-cover cursor-pointer group-hover:opacity-90 transition-opacity duration-300"></a><a href="/images/19.1.jpeg" class="lightbox-trigger"><img src="/images/19.1.jpeg" alt="Vaip nr. 19 detail" class="rounded-lg w-full h-64 object-cover cursor-pointer group-hover:opacity-90 transition-opacity duration-300"></a></div></div>
+                    <div class="rounded-2xl shadow-sm overflow-hidden group bg-pastel-blue/30 p-6"><h3 class="text-2xl font-bold mb-2">Vaip nr. 20</h3><p class="text-brand-text/80 mb-4">Pehme villavaip, mille soojad toonid ja paks tekstuur kutsuvad peale astuma.</p><div class="grid grid-cols-2 gap-4"><a href="/images/20.jpeg" class="lightbox-trigger"><img src="/images/20.jpeg" alt="Vaip nr. 20" class="rounded-lg w-full h-64 object-cover cursor-pointer group-hover:opacity-90 transition-opacity duration-300"></a><a href="/images/20.1.jpeg" class="lightbox-trigger"><img src="/images/20.1.jpeg" alt="Vaip nr. 20 detail" class="rounded-lg w-full h-64 object-cover cursor-pointer group-hover:opacity-90 transition-opacity duration-300"></a></div></div>
+                    <div class="rounded-2xl shadow-sm overflow-hidden group bg-pastel-yellow/50 p-6"><h3 class="text-2xl font-bold mb-2">Vaip nr. 21</h3><p class="text-brand-text/80 mb-4">Harmoonilistes toonides ja ajatu disainiga rahulik kokkuvõte.</p><div class="grid grid-cols-2 gap-4"><a href="/images/21.jpeg" class="lightbox-trigger"><img src="/images/21.jpeg" alt="Vaip nr. 21" class="rounded-lg w-full h-64 object-cover cursor-pointer group-hover:opacity-90 transition-opacity duration-300"></a><a href="/images/21.1.jpeg" class="lightbox-trigger"><img src="/images/21.1.jpeg" alt="Vaip nr. 21 detail" class="rounded-lg w-full h-64 object-cover group-hover:opacity-90 transition-opacity duration-300"></a></div></div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white">
+        <div class="h-2 bg-gradient-to-r from-pastel-yellow via-pastel-pink to-pastel-blue"></div>
+        <div class="container mx-auto px-6 py-8 text-center text-brand-text/70">
+            <p>&copy; 2025 Saku Vaibad. Kõik õigused kaitstud.</p>
+            <p class="text-sm mt-2">Disainitud ja loodud südamega.</p>
+        </div>
+    </footer>
+    
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="hidden fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4">
+        <button id="lightbox-close" class="absolute top-4 right-4 text-white text-4xl font-bold">&times;</button>
+        <img id="lightbox-image" src="" alt="Suurendatud vaip" class="max-w-[90vw] max-h-[90vh] rounded-lg shadow-lg">
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuToggle.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+        });
+        const mobileNavLinks = document.querySelectorAll('#mobile-menu a');
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (!link.href.includes('galerii.html')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // Lightbox functionality
+        document.addEventListener('DOMContentLoaded', () => {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImage = document.getElementById('lightbox-image');
+            const lightboxClose = document.getElementById('lightbox-close');
+            const imageTriggers = document.querySelectorAll('.lightbox-trigger');
+
+            imageTriggers.forEach(trigger => {
+                trigger.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const imageUrl = this.getAttribute('href');
+                    lightboxImage.setAttribute('src', imageUrl);
+                    lightbox.classList.remove('hidden');
+                });
+            });
+
+            function closeLightbox() {
+                lightbox.classList.add('hidden');
+                lightboxImage.setAttribute('src', '');
+            }
+
+            lightboxClose.addEventListener('click', closeLightbox);
+            lightbox.addEventListener('click', function(e) {
+                if (e.target === lightbox) {
+                    closeLightbox();
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
